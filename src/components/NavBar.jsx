@@ -28,7 +28,9 @@ const NavBar = () => {
               </Link>
             </div>
             <Link to={"/create-post"}>
-              <button className="btn">Make a Post</button>
+              <button className="btn bg-slate-900 hover:bg-slate-800">
+                Make a Post
+              </button>
             </Link>
           </div>
           <div className="navbar-end flex md:hidden">
@@ -42,16 +44,33 @@ const NavBar = () => {
         </div>
       </nav>
       {menu && (
-        <div className="absolute z-40 top-[7rem] left-[50%] w-[300px] sm:w-[400px] shadow-lg -translate-x-[50%] bg-slate-100 rounded py-6 px-4">
-          <div className="flex z-40 flex-col items-center justify-center w-full gap-3">
-            <Link onClick={() => setMenu(false)} to="/home">
+        <div className="fixed z-40 top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-900">
+          <button onClick={() => setMenu(false)} className="bg-white fixed top-3 right-3 py-2 px-2 rounded-full">
+            <MdOutlineClose className="text-2xl" />
+          </button>
+          <div className="flex z-40 flex-col items-center shadow-lg justify-center w-[300px] bg-slate-100 sm:w-[400px] rounded py-6 px-4 w-full gap-3">
+            <Link
+              className="flex-1 text-center py-2 hover:bg-slate-200 w-full"
+              onClick={() => setMenu(false)}
+              to="/home"
+            >
               <p>Home</p>
             </Link>
-            <Link onClick={() => setMenu(false)} to="/wall">
+            <Link
+              className="flex-1 text-center py-2 hover:bg-slate-200 w-full"
+              onClick={() => setMenu(false)}
+              to="/wall"
+            >
               <p>Wall</p>
             </Link>
-            <Link onClick={() => setMenu(false)} to={"/create-post"}>
-              <button className="btn">Make a Post</button>
+            <Link
+              className="flex-1 w-full"
+              onClick={() => setMenu(false)}
+              to={"/create-post"}
+            >
+              <button className="btn bg-slate-900 hover:bg-slate-800 w-full">
+                Make a Post
+              </button>
             </Link>
           </div>
         </div>
