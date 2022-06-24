@@ -1,0 +1,44 @@
+@import url('https://fonts.cdnfonts.com/css/sofia-pro');
+@import url('https://fonts.cdnfonts.com/css/cubano');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: 'Sofia Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.font-cubano {
+  font-family: 'Cubano', sans-serif;
+}
+
+
+.bg-mesh{
+  background: url(./assets/mesh-gradient.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+input, textarea{
+  @apply bg-gray-100 shadow-inner w-full border-2 text-slate-900 border-gray-200 rounded-md py-2 px-4;
+  outline: none;
+}
+
+.form-control {
+  @apply flex-1 flex flex-col w-full gap-1 items-start justify-start font-bold text-lg;
+}
