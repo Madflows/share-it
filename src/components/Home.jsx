@@ -33,7 +33,7 @@ const HeroSection = () => {
               to="/create-post"
               className="btn bg-slate-900 hover:bg-slate-800 hover:border-slate-800 border-4 border-slate-900  flex-1 w-full"
             >
-              <button>Share your Thought</button>
+              <button>Share It</button>
             </Link>
             <Link
               to="/wall"
