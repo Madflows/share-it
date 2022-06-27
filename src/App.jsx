@@ -1,5 +1,5 @@
-import { Routes, Route, Navigate } from "react-router-dom";
-import { NavBar, Home, Wall, Create, Post } from "./components";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { NavBar, Home, Wall, Create, Post, Footer } from "./components";
 import { useState, useEffect } from "react";
 import { db } from "./lib/firebase.config";
 import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
@@ -25,8 +25,9 @@ function App() {
     }
   }, [db]);
   return (
-    <div className="bg-mesh min-h-screen">
+    <div className="bg-blue-100 min-h-screen">
       <NavBar />
+      <ScrollToTop />
       <div className="pt-[6rem] z-0">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,8 +43,22 @@ function App() {
           ))}
         </Routes>
       </div>
+      <Footer />
     </div>
   );
+}
+
+
+
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
 }
 
 export default App;

@@ -50,7 +50,7 @@ const Create = () => {
       <form
         onSubmit={handleSubmit}
         ref={formRef}
-        className="w-full flex flex-col gap-3 max-w-[90vw] md:max-w-[700px] mx-auto"
+        className="w-full flex flex-col gap-3 bg-white p-8 rounded-md max-w-[90vw] md:max-w-[700px] mx-auto"
       >
         <div className="form-control">
           <label htmlFor="title">Post Title</label>

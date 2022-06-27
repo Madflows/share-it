@@ -10,6 +10,7 @@
 
 *{
   font-family: 'Trispace', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -38,10 +39,22 @@ code {
 
 
 input, textarea{
-  @apply bg-gray-100 shadow-inner w-full border-2 text-slate-900 border-gray-200 rounded-md py-2 px-4;
+  @apply bg-gray-100 shadow-inner w-full resize-none border-gray-300 border-2 text-slate-900 rounded-md py-2 px-4;
   outline: none;
+}
+
+textarea{
+  @apply resize-none w-full h-32 p-2 border-2 border-gray-300;
 }
 
 .form-control {
   @apply flex-1 flex flex-col w-full gap-1 items-start justify-start font-bold text-lg;
+}
+
+::-webkit-scrollbar{
+  @apply w-2 bg-blue-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb{
+  @apply bg-slate-500 rounded-full;
 }

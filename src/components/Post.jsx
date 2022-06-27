@@ -97,11 +97,11 @@ const Post = ({ slug }) => {
               <h1 className="text-center text-xl sm:text-2xl py-3 pb-5 md:text-3xl lg:text-5xl font-cubano font-black">
                 {post.title}
               </h1>
-              <div className="prose prose-md break-all lg:prose-xl w-full max-w-[90vw] md:max-w-[960px]">
+              <div className="prose prose-md break-all min-h-[300px] lg:prose-xl w-full max-w-[90vw] md:max-w-[960px]">
                 <ReactMarkdown>{post.body}</ReactMarkdown>
               </div>
-              <div className="bg-white max-w-[90vw] my-[1rem] md:max-w-[600px] mx-auto rounded-lg py-6 px-6">
-                <h2 className="font-cubano text-lg md:text-2xl">Comments</h2>
+              <div className="bg-white max-w-[90vw] my-[1rem] md:max-w-[600px] mx-auto rounded-lg py-6 px-6 shadow-lg">
+                <h2 className="font-cubano text-lg md:text-2xl py-4">Comments</h2>
                 {comments.length != 0 ? (
                   <div className="flex flex-col gap-3 py-2">
                     {comments.map((comment) => (
