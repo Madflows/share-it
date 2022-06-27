@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase.config";
-import { onSnapshot, collection, query, orderBy } from "firebase/firestore";
+import { onSnapshot, collection, query, orderBy, limit, startAfter } from "firebase/firestore";
 import { Link } from "react-router-dom";
+import { GoUnverified } from "react-icons/go";
+import { MdVerified } from "react-icons/md";
 
 const Wall = () => {
   const [posts, setPosts] = useState([]);
+  const [latestPost, setLatestPost] = useState(null);
   useEffect(() => {
     if (db) {
       const postRef = collection(db, "posts");
-      const postQuery = query(postRef, orderBy("createdAt", "desc"));
+      const postQuery = query(postRef, orderBy("createdAt", "desc"), limit(6));
       const unsubPost = onSnapshot(postQuery, (snapshot) => {
         const _data = snapshot.docs.map((doc) => {
           return {
@@ -17,6 +20,7 @@ const Wall = () => {
           };
         });
         setPosts(_data);
+        // setLatestPost(snapshot.docs[snapshot.docs.length - 1]);
       });
 
       return unsubPost;
@@ -45,11 +49,12 @@ const Wall = () => {
               <div
                 className={`absolute bottom-2 right-3 ${
                   post.author === "admin"
-                    ? "bg-emerald-800 text-white rounded-2xl"
+                    ? "bg-emerald-600 text-white rounded-2xl"
                     : "badge"
-                } badge-md`}
+                } badge-md flex gap-1 items-center justify-center py-3 px-3`}
               >
                 {post.author}
+                {post.author === "admin" ? <MdVerified /> : <GoUnverified />}
               </div>
             </Link>
           ))}

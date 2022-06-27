@@ -101,7 +101,9 @@ const Post = ({ slug }) => {
                 <ReactMarkdown>{post.body}</ReactMarkdown>
               </div>
               <div className="bg-white max-w-[90vw] my-[1rem] md:max-w-[600px] mx-auto rounded-lg py-6 px-6 shadow-lg">
-                <h2 className="font-cubano text-lg md:text-2xl py-4">Comments</h2>
+                <h2 className="font-cubano text-lg md:text-2xl py-4">
+                  Comments
+                </h2>
                 {comments.length != 0 ? (
                   <div className="flex flex-col gap-3 py-2">
                     {comments.map((comment) => (
@@ -158,7 +160,10 @@ const Post = ({ slug }) => {
                         }
                       />
                     </div>
-                    <button type="submit" className="btn mt-4">
+                    <button
+                      type="submit"
+                      className="btn bg-slate-900 hover:bg-slate-800 rounded-lg mt-4"
+                    >
                       Add Comment
                     </button>
                   </form>

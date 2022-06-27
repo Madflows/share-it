@@ -119,7 +119,7 @@ const Create = () => {
         </div>
         <button
           type="submit"
-          className="bg-slate-800 hover:bg-slate-900 transition py-3 rounded text-white mt-4 flex gap-2 items-center justify-center cursor-pointer"
+          className="bg-slate-900 hover:bg-slate-800 transition py-3 rounded text-white mt-4 flex gap-2 items-center justify-center cursor-pointer"
         >
           {!posting ? (
             "Make a Post"
