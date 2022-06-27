@@ -17,9 +17,7 @@ const Wall = () => {
           };
         });
         setPosts(_data);
-        console.log(snapshot);
       });
-      console.log(posts);
 
       return unsubPost;
     }
