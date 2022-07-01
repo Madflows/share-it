@@ -11,7 +11,7 @@ const Wall = () => {
   useEffect(() => {
     if (db) {
       const postRef = collection(db, "posts");
-      const postQuery = query(postRef, orderBy("createdAt", "desc"), limit(6));
+      const postQuery = query(postRef, orderBy("createdAt", "desc"));
       const unsubPost = onSnapshot(postQuery, (snapshot) => {
         const _data = snapshot.docs.map((doc) => {
           return {
