@@ -14,7 +14,7 @@ const HeroSection = () => {
     <div className="hero min-h-[80vh]">
       <div className="hero-content text-center">
         <div className="max-w-xl">
-          <h1 className="text-6xl font-cubano font-black">
+          <h1 className="text-6xl font-cubano font-black gradient-text">
             Got Something Bothering you?
           </h1>
 

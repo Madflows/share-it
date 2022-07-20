@@ -42,9 +42,9 @@ const Wall = () => {
             transition hover:text-slate-50 px-4 py-4 min-h-[200px] relative"
               key={post.id}
             >
-              <h2 className="font-cubano text-2xl">{post.title}</h2>
-              <div className="py-3 px-4 truncate">
-                <p className="truncate w-full">{post.body}</p>
+              <h2 className="font-cubano text-2xl line-clamp-2">{post.title}</h2>
+              <div className="py-3 px-4">
+                <p className="line-clamp-2 capitalize w-full">{post.body}</p>
               </div>
               <div
                 className={`absolute bottom-2 right-3 ${
