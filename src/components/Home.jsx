@@ -19,10 +19,10 @@ const HeroSection = () => {
           </h1>
 
           <div className="flex gap-2 flex-col py-4">
-            <p className="text-xl font-bold text-slate-700">
+            <p className="text-lg font-medium text-slate-600">
               Mental pain is less dramatic than physical pain, but it is more
               common and also more hard to bear. The frequent attempt to conceal
-              mental pain increases the burden. Don't kill yourself.
+              mental pain increases the burden.
             </p>
             <span className="text-sm text-slate-900">
               Share your problem with the world, Anonymously.

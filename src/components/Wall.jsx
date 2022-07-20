@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase.config";
-import { onSnapshot, collection, query, orderBy, limit, startAfter } from "firebase/firestore";
+import {
+  onSnapshot,
+  collection,
+  query,
+  orderBy,
+  limit,
+  startAfter,
+} from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { GoUnverified } from "react-icons/go";
 import { MdVerified } from "react-icons/md";
@@ -37,12 +44,14 @@ const Wall = () => {
           {posts.map((post) => (
             <Link
               to={`/wall/${post.slug}`}
-              className="card hover:bg-slate-800 border-4 
-            border-slate-800 backdrop-blur-xl z-10 bg-slate-50/10 
-            transition hover:text-slate-50 px-4 py-4 min-h-[200px] relative"
+              className="card hover:bg-slate-800 shadow-lg border-4 
+            border-slate-800 rotate-2 hover:rotate-0 backdrop-blur-xl z-10 bg-slate-50/10 
+            transition duration-300 hover:text-slate-50 px-4 py-4 min-h-[200px] relative"
               key={post.id}
             >
-              <h2 className="font-cubano text-2xl line-clamp-2">{post.title}</h2>
+              <h2 className="font-cubano text-2xl line-clamp-2">
+                {post.title}
+              </h2>
               <div className="py-3 px-4">
                 <p className="line-clamp-2 capitalize w-full">{post.body}</p>
               </div>

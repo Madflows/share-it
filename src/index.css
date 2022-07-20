@@ -1,6 +1,8 @@
 @import url("https://fonts.cdnfonts.com/css/sofia-pro");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Trispace:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.cdnfonts.com/css/cerebri-sans');
+
 
 @tailwind base;
 @tailwind components;
@@ -22,7 +24,7 @@
 }
 
 * {
-  font-family: "Trispace", sans-serif;
+  font-family: "Cerebri Sans", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   scroll-behavior: smooth;
 }
 
