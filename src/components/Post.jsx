@@ -93,11 +93,11 @@ const Post = ({ slug }) => {
       {postArr.map((post) =>
         post.slug === slug ? (
           <div key={post.id} className="pb-8">
-            <div className="max-w-[90vw] md:max-w-[750px] lg:max-w-[850px] mx-auto">
+            <div className="max-w-[90vw] text-slate-50 md:max-w-[750px] lg:max-w-[850px] mx-auto">
               <h1 className="text-center text-xl sm:text-2xl py-3 pb-5 md:text-3xl lg:text-5xl font-cubano font-black">
                 {post.title}
               </h1>
-              <div className="prose prose-md break-all min-h-[300px] lg:prose-xl w-full max-w-[90vw] md:max-w-[960px]">
+              <div className="prose text-slate-50 prose-md break-all min-h-[300px] lg:prose-xl w-full max-w-[90vw] md:max-w-[960px]">
                 <ReactMarkdown>{post.body}</ReactMarkdown>
               </div>
               <div className="bg-white max-w-[90vw] my-[1rem] md:max-w-[600px] mx-auto rounded-lg py-6 px-6 shadow-lg">

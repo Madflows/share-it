@@ -1,30 +1,13 @@
-@import url("https://fonts.cdnfonts.com/css/sofia-pro");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Trispace:wght@300;400;500;600;700;800&display=swap");
-@import url('https://fonts.cdnfonts.com/css/cerebri-sans');
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Cubano";
-  src: url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.eot");
-  src: url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/1d65b5646a9a805c62b037be6dd3a0a7.svg#Cubano")
-      format("svg");
+:root {
+  color-scheme: dark;
 }
 
 * {
-  font-family: "Cerebri Sans", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-family: "GT Walsheim", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -65,14 +48,6 @@ textarea {
   @apply flex-1 flex flex-col w-full gap-1 items-start justify-start font-bold text-lg;
 }
 
-::-webkit-scrollbar {
-  @apply w-1 bg-blue-100 rounded-full;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-slate-800 rounded-full;
-}
-
 .name {
   position: relative;
   @apply text-slate-600 font-bold;
@@ -102,10 +77,3 @@ textarea {
   @apply text-white;
 }
 
-.gradient-text {
-  background: -webkit-linear-gradient(45deg, rgb(0, 110, 255), rgb(255, 31, 1));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 4rem;
-}

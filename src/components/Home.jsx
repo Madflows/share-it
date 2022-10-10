@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Home2 from "./Home2";
 
 const Home = () => {
   return (
     <div>
-      <HeroSection />
+      {/* <HeroSection /> */}
+      <Home2 />
     </div>
   );
 };

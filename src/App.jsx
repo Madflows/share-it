@@ -25,10 +25,10 @@ function App() {
     }
   }, [db]);
   return (
-    <div className="bg-blue-100 min-h-screen">
+    <div className="bg-gradient-to-b from-[#101212] relative to-[#08201D] min-h-screen">
       <NavBar />
       <ScrollToTop />
-      <div className="pt-[6rem] z-0">
+      <div className="pt-[5rem] z-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" />} />
