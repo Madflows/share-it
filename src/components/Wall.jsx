@@ -41,12 +41,12 @@ const Wall = () => {
         <h3 className="text-2xl md:text-5xl font-cubano text-white">The Wall</h3>
       </div>
       {posts && posts.length != 0 ? (
-        <div className="grid py-6 grid-cols-1 gap-4 md:gap-3 -z-40 sm:grid-cols-2 md:grid-cols-3 max-w-[90vw] md:max-w-[950px] mx-auto">
+        (<div className="grid py-6 grid-cols-1 gap-4 md:gap-3 sm:grid-cols-2 md:grid-cols-3 max-w-[90vw] md:max-w-[1050px] mx-auto">
           {posts.map((post) => (
             <Link
               to={`/wall/${post.slug}`}
-              className="card transform-cpu bg-gradient-to-br bg-gray-900  shadow-2xl border-4 
-            border-slate-800  z-10
+              className="card transform-cpu bg-gradient-to-br bg-gray-900  shadow-2xl border-2 
+            border-slate-50 border-dashed  z-10
             transition duration-300 px-4 py-4 min-h-[200px] relative"
               key={post.id}
             >
@@ -67,7 +67,7 @@ const Wall = () => {
               </div>
             </Link>
           ))}
-        </div>
+        </div>)
       ) : (
         <div className="min-h-[300px] mx-auto flex items-center justify-center gap-3 flex-col">
           <RiEmotionSadLine className="text-6xl text-white" />

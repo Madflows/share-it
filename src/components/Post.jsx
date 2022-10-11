@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
 import { db } from "../lib/firebase.config";
+
+
+import React, { useState, useEffect } from "react";
 import {
   onSnapshot,
   collection,
@@ -11,12 +13,14 @@ import ReactMarkdown from "react-markdown";
 import { RiEmotionSadLine } from "react-icons/ri";
 import toast from "react-hot-toast";
 
+import MDEditor from '@uiw/react-md-editor';
+
 const Post = ({ slug }) => {
   const [postArr, setPostArr] = useState([]);
   const [comments, setComments] = useState([]);
   const [postID, setPostID] = useState("");
   const [commentForm, setCommentForm] = useState({
-    author: "",
+    author: "anonymous",
     message: "",
   });
 
@@ -100,8 +104,10 @@ const Post = ({ slug }) => {
               <div className="prose text-slate-50 prose-md break-all min-h-[300px] lg:prose-xl w-full max-w-[90vw] md:max-w-[960px]">
                 <ReactMarkdown>{post.body}</ReactMarkdown>
               </div>
+
+
               <div className="bg-white max-w-[90vw] my-[1rem] md:max-w-[600px] mx-auto rounded-lg py-6 px-6 shadow-lg">
-                <h2 className="font-cubano text-lg md:text-2xl py-4">
+                <h2 className="font-cubano text-stone-900 text-lg md:text-2xl py-4">
                   Comments
                 </h2>
                 {comments.length != 0 ? (
@@ -109,30 +115,32 @@ const Post = ({ slug }) => {
                     {comments.map((comment) => (
                       <div
                         key={comment.id}
-                        className="flex flex-col gap items-start bg-slate-200 rounded-lg justify-start py-4 px-4 hover:bg-slate-100 transition"
+                        className="flex flex-col gap items-start bg-emerald-100 rounded-lg justify-start py-4 px-4 hover:bg-emerald-200 transition"
                       >
-                        <h3 className="font-bold">
+                        <h3 className="font-bold text-stone-800">
                           By <span>{comment.author}</span>
                         </h3>
-                        <p className="text-sm">{comment.message}</p>
+                        <ReactMarkdown className="text-sm text-stone-800">
+                        {comment.message}
+                        </ReactMarkdown>
                       </div>
                     ))}
                   </div>
                 ) : (
-                  <div className="py-4 flex flex-col gap-1 items-center justify-center">
+                  <div className="py-4 flex flex-col gap-1 text-stone-900 items-center justify-center">
                     <RiEmotionSadLine className="text-4xl" />
-                    <p className="text-sm font-bold">No comments yet</p>
-                    <p>Be the first to comment</p>
+                    <p className="text-lg font-bold ">No comments yet</p>
+                    <p className="text-sm">Be the first to comment</p>
                   </div>
                 )}
                 <div className="py-4">
                   <form onSubmit={addComment} className="flex flex-col gap-2">
                     <div>
                       <label htmlFor="comment">Comment</label>
-                      <textarea
+                      <MDEditor
                         name="comment"
                         id="comment"
-                        className="resize-none w-full h-32 p-2 border-2 border-gray-300 rounded-lg"
+                        className="resize-none w-full h-32 font-semibold p-2 border-2 border-gray-300 rounded-lg"
                         placeholder="Make a Comment"
                         value={message}
                         onChange={(event) =>
@@ -150,19 +158,20 @@ const Post = ({ slug }) => {
                         type="text"
                         name="author"
                         id="author"
-                        placeholder="Leave Empty if anonymous"
+                        placeholder="name"
+                        className="font-semibold"
                         value={author}
                         onChange={(event) =>
                           setCommentForm({
                             ...commentForm,
-                            author: event.target.value || "anonymous",
+                            author: event.target.value,
                           })
                         }
                       />
                     </div>
                     <button
                       type="submit"
-                      className="btn bg-slate-900 hover:bg-slate-800 rounded-lg mt-4"
+                      className="btn bg-emerald-900 hover:bg-emerald-800 text-white outline-none rounded-lg mt-4"
                     >
                       Add Comment
                     </button>
