@@ -19,10 +19,18 @@ const Post = ({ slug }) => {
   const [postArr, setPostArr] = useState([]);
   const [comments, setComments] = useState([]);
   const [postID, setPostID] = useState("");
+  const [commentMessage, setCommentMessage] = useState("")
   const [commentForm, setCommentForm] = useState({
     author: "anonymous",
-    message: "",
+    message: commentMessage,
   });
+
+  useEffect(() => {
+    setCommentForm({
+      ...commentForm,
+      message: commentMessage,
+    })            
+  }, [commentForm])
 
   useEffect(() => {
     if (db) {
@@ -142,13 +150,8 @@ const Post = ({ slug }) => {
                         id="comment"
                         className="resize-none w-full h-32 font-semibold p-2 border-2 border-gray-300 rounded-lg"
                         placeholder="Make a Comment"
-                        value={message}
-                        onChange={(event) =>
-                          setCommentForm({
-                            ...commentForm,
-                            message: event.target.value,
-                          })
-                        }
+                        value={commentMessage}
+                        onChange={setCommentMessage}
                         required
                       />
                     </div>

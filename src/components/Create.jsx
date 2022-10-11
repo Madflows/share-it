@@ -4,19 +4,30 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import slugify from "react-slugify";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import MDEditor from '@uiw/react-md-editor';
+
 
 const Create = () => {
   const formRef = useRef();
   const navigate = useNavigate();
+  const [postBody, setPostBody] = useState("");
   const [form, setForm] = useState({
     title: "",
     author: "anonymous",
-    body: "",
+    body: postBody,
     slug: "",
     createdAt: serverTimestamp(),
   });
   const [posting, setPosting] = useState(false);
   const postRef = collection(db, "posts");
+
+  useEffect(() => {
+    setForm({
+      ...form,
+      body: postBody,
+    })
+  }, [form])
+
   const handleSubmit = (e) => {
     setPosting(true);
     e.preventDefault();
@@ -37,7 +48,7 @@ const Create = () => {
         toast.error(err);
         setPosting(false);
       });
-    
+
   };
 
   const { title, author, body, slug } = form;
@@ -88,18 +99,14 @@ const Create = () => {
         </div>
         <div className="form-control">
           <label htmlFor="body">Post Body</label>
-          <textarea
-            value={body}
+          <MDEditor
+            value={postBody}
+            onChange={setPostBody}
             required
-            onChange={(e) =>
-              setForm({
-                ...form,
-                body: e.target.value,
-              })
-            }
             name="body"
             id="body"
-          ></textarea>
+            className="w-full"
+          />
         </div>
         <div className="form-control">
           <label htmlFor="slug">
