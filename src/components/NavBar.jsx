@@ -4,6 +4,8 @@ import { HiMenu } from "react-icons/hi";
 import { MdOutlineClose } from "react-icons/md";
 import { BiPen } from "react-icons/bi";
 
+import { Book1, Notepad2 } from 'iconsax-react'
+
 const NavBar = () => {
   const [menu, setMenu] = useState(false);
 
@@ -97,19 +99,23 @@ function Nav2({ menu, setMenu }) {
             </Link>
           </div>
 
-          <div className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-10">
-            <Link to={"/wall"} className="text-base text-white transition-all duration-200 hover:text-opacity-80">
-              <p>Wall</p>
-            </Link>
-            <Link to={"/home"} className="text-base text-white transition-all duration-200 hover:text-opacity-80">
-              <p>Home</p>
-            </Link>
-          </div>
-
           <div className="lg:flex lg:items-center lg:justify-end lg:space-x-6 sm:ml-auto">
-            <Link className="hidden text-base text-white transition-all duration-200 lg:inline-flex hover:text-opacity-80" to="/wall">View Posts</Link>
+            <Link className="hidden text-base items-center gap-2 text-white transition-all duration-200 lg:inline-flex px-3 sm:px-5 py-2.5 rounded-lg font-semibold  hover:text-opacity-80 bg-white/20 hover:bg-white/40" to="/wall">
+              <Book1
+                size="24"
+                color="#FFFFFF"
+              />
+              View Posts
+            </Link>
 
-            <Link to="/create-post" title="" className="inline-flex items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white bg-white/20 hover:bg-white/40 focus:bg-white/40 rounded-lg" role="button"> Write a Post </Link>
+            <Link to="/create-post" title="" className="inline-flex gap-2 items-center justify-center px-3 sm:px-5 py-2.5 text-sm sm:text-base font-semibold transition-all duration-200 text-white bg-white/20 hover:bg-white/40 focus:bg-white/40 rounded-lg" role="button">
+
+              Write a Post
+              <Notepad2
+                size="24"
+                color="#FFFFFF"
+              />
+            </Link>
 
           </div>
 
